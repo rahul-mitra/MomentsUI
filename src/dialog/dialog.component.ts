@@ -194,6 +194,13 @@ export class DialogComponent implements OnInit {
           this.dataService.openSnackBar("File size is too large limit is 5mb", "Ohhh", 5000);
           return;
         }
+        else if(!(tempFile.type.toLowerCase().includes("jpeg")||
+        tempFile.type.toLowerCase().includes("jpg")||
+        tempFile.type.toLowerCase().includes("png")))
+        {
+          this.dataService.openSnackBar("File allowed are png,jpg and jpeg", "Okay", 5000);
+          return;
+        }
         else {
           this.file = files.item(0);
           this.upload = undefined;

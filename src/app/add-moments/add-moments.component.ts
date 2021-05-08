@@ -32,11 +32,19 @@ export class AddMomentsComponent implements OnInit, OnDestroy {
   }
 
   onFileInput(files: FileList | null): void {
+    debugger;
     if (files) {
       var tempFile = files.item(0);
       if (tempFile) {
         if (tempFile.size > 5242880) {
           this.dataservice.openSnackBar("File size is too large limit is 5mb", "Ohhh", 5000);
+          return;
+        }
+        else if(!(tempFile.type.toLowerCase().includes("jpeg")||
+        tempFile.type.toLowerCase().includes("jpg")||
+        tempFile.type.toLowerCase().includes("png")))
+        {
+          this.dataservice.openSnackBar("File allowed are png,jpg and jpeg", "Okay", 5000);
           return;
         }
         else {
