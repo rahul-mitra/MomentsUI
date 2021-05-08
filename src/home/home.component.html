@@ -1,0 +1,19 @@
+<div class="home-main">
+  <div class="leftSidePanel" *ngIf="!mobileQuery.matches">
+    <div class="logo">
+      <img src="https://5d.solutions/img/logo_light.png">
+    </div>
+    <div class="momentButtons" >
+      <button mat-button (click)="dataService.momentsListView=true">Moment list</button>
+      <button mat-button (click)="dataService.momentsListView=false">Add new moments</button>
+    </div>
+  </div>
+  <div class="rightSidePanel" >
+    <ng-container *ngIf="dataService.momentsListView">
+      <app-show-moments></app-show-moments>
+    </ng-container>
+    <ng-container *ngIf="!dataService.momentsListView">
+      <app-add-moments></app-add-moments>
+    </ng-container>
+  </div>
+</div>

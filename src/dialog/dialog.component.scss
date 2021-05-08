@@ -1,0 +1,169 @@
+.login {
+  display: grid;
+  height: max-content;
+
+  input {
+    width: 100%;
+  }
+}
+mat-form-field .mat-form-field {
+  &-underline {
+    position: relative;
+    bottom: auto;
+  }
+  &-subscript-wrapper {
+    position: static;
+  }
+}
+.register {
+  display: grid;
+  height: max-content;
+  // min-height: 420px;
+  input {
+    width: 100%;
+  }
+}
+.autoExpand{
+  flex: 1 1 auto;
+}
+.Slider {
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+  span{
+    flex: 1 1 auto;
+  }
+}
+.chatDialog{
+  mat-form-field{
+    width: 100%;
+  }
+}
+
+// .mat-form-field-subscript-wrapper {
+//   font-size: 70% !important;
+// }
+
+::ng-deep .mat-form-field {
+    width: 100%;
+}
+
+mat-form-field.ng-invalid.ng-touched {
+  animation: bigger;
+  animation-duration: 0.3s;
+  margin-bottom: 20px;
+}
+mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
+  transform: translateY(-1.28125em) scale(0.65) perspective(100px) translateZ(0.001px);
+  -ms-transform: translateY(-1.28125em) scale(0.75);
+  width: 133.3333333333%;
+  font-family: sans-serif;
+}
+@keyframes bigger {
+  from {margin-bottom: 0;}
+  to {margin-bottom: 20px;}
+}
+
+mat-form-field.ng-valid.ng-touched {
+  animation: smaller;
+  animation-duration: 0.3s;
+  margin-bottom: 0px;
+}
+
+@keyframes smaller {
+  from {margin-bottom: 20px;}
+  to {margin-bottom: 0;}
+}
+
+.title {
+  width: calc(100% - 20px);
+  mat-form-field {
+    width: 100%;
+  }
+}
+.tags {
+  width: calc(100% - 20px);
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.container {
+  width: 450px;
+  height: 200px;
+  padding: 2rem;
+  text-align: center;
+  border: dashed 1px #979797;
+  position: relative;
+  margin: 0 auto;
+
+  input {
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  label {
+    color: white;
+    width: 183px;
+    height: 44px;
+    border-radius: 21.5px;
+    background-color: #db202f;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #38424c;
+  }
+}
+
+
+.files-list {
+  margin-top: 1.5rem;
+
+  .single-file {
+    display: flex;
+    padding: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    border: dashed 1px #979797;
+    margin-bottom: 1rem;
+
+    .delete {
+      display: flex;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      align-self: flex-end;
+    }
+
+
+    display: flex;
+    flex-grow: 1;
+
+    .name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #353f4a;
+      margin: 0;
+    }
+
+    .size {
+      font-size: 12px;
+      font-weight: 500;
+      color: #a4a4a4;
+      margin: 0;
+      margin-bottom: 0.25rem;
+    }
+
+    .info {
+      width: 100%
+    }
+  }
+}

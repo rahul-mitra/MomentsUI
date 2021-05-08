@@ -1,0 +1,46 @@
+.showMomentsMain{
+  padding: 10px;
+}
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.momentImage{
+  // img{
+  //   border-radius: 50%;
+  //   display: block;
+  //   max-width: 230px;
+  //   max-height: 95px;
+  //   width: auto;
+  //   height: auto;
+  // }
+  width: 75px;
+  height: 75px;
+  // background-image: url('your-image.jpg');
+  background-size: cover;
+  display: block;
+  border-radius:50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+  cursor: pointer;
+  mat-icon{
+    opacity: 0;
+    transition: all 0.25s ease-out;
+    cursor: pointer;
+  }
+}
+.momentImage:hover{
+  mat-icon{
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+.rowActions{
+  display: flex;
+}
