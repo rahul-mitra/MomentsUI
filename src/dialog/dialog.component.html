@@ -184,10 +184,10 @@
     </div>
 
     <div mat-dialog-actions>
-      <button mat-button (click)="Close('editMoment',data.data)" color="primary" *ngIf="!file" [disabled]="data.data.newMoment.title==data.data.oldMoment.title&&
+      <button mat-raised-button (click)="Close('editMoment',data.data)" color="primary" *ngIf="!file" [disabled]="data.data.newMoment.title==data.data.oldMoment.title&&
       isSame(data.data.newMoment.tags,data.data.oldMoment.tags)">Save</button>
       <button (click)="onSubmit()" mat-raised-button color="primary" *ngIf="file">Save</button>
-      <button mat-button (click)="dialogRef.close({command:'close'})" color="accent">Close</button>
+      <button mat-raised-button (click)="dialogRef.close({command:'close'})" color="accent">Close</button>
     </div>
   </ng-container>
 

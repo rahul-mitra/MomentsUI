@@ -244,21 +244,14 @@ export class DialogComponent implements OnInit {
   }
 
   public isSame(arr1: Array<string>, arr2: Array<string>): boolean {
-    var flag = false;
-    for (const item1 of arr1) {
-      for (const item2 of arr2) {
-        console.log("Comparing "+item1+" ==== "+item2);
-        if (item1 == item2) {
-          flag = true;
-        }
-        else
-        {
-          flag= false;
-          break;
-        }
-      }
+    if (arr1?.length != arr2?.length)
+      return false
+    arr1.sort()
+    arr2.sort()
+    for (let index = 0; index < arr1.length; index++) {
+      if (arr1[index] != arr2[index])
+        return false
     }
-    console.log("Flag "+flag);
-    return flag;
+    return true;
   }
 }

@@ -44,7 +44,7 @@ export const calculateState = (upload: Upload, event: any): Upload => {
   }
   return upload
 }
-// export const serverURL = "https://api.moments.rahulmitra.dev";
+
 export const serverURL = "http://localhost:4000"
 export interface Upload {
   progress: number
