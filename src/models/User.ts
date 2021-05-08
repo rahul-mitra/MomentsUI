@@ -18,6 +18,7 @@ export interface IMoments{
   image:string,
   tags:Array<string>,
   title:string,
+  time:Date,
   _id:any;
 }
 

@@ -18,7 +18,7 @@ export class ShowMomentsComponent implements OnInit {
   private _mobileQueryListener: () => void;
   mobileQuery: MediaQueryList;
   public momentSubscription: Subscription;
-  displayedColumns: string[] = ['index', 'image', 'title', 'tags', 'actions'];
+  displayedColumns: string[] = ['index', 'time','image', 'title', 'tags', 'actions'];
   dataSource!: MatTableDataSource<IMoments>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
