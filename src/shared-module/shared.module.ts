@@ -48,11 +48,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CapatalizePipe } from 'src/pipes/capatalize.pipe';
 import { ImageViewerModule } from '@nghacks/image-viewer';
+import { DndDirective } from 'src/app/dnd.directive';
 
 @NgModule({
   declarations: [
     DialogComponent,
-    CapatalizePipe
+    CapatalizePipe,
+    DndDirective
   ],
   imports: [  //for using within components declared here
     CommonModule,
@@ -155,7 +157,8 @@ import { ImageViewerModule } from '@nghacks/image-viewer';
     CapatalizePipe,
     FormsModule,
     ReactiveFormsModule,
-    ImageViewerModule
+    ImageViewerModule,
+    DndDirective
   ]
 })
 export class SharedModule { }

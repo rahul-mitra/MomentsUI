@@ -9,7 +9,6 @@ import { HomeComponent } from '../home/home.component';
 import { WackySpinnerComponent } from './wacky-spinner/wacky-spinner.component';
 import { AddMomentsComponent } from './add-moments/add-moments.component';
 import { ShowMomentsComponent } from './show-moments/show-moments.component';
-import { DndDirective } from './dnd.directive';
 import { SafePipe } from './pipes/safe.pipe';
 
 
@@ -20,7 +19,6 @@ import { SafePipe } from './pipes/safe.pipe';
     WackySpinnerComponent,
     AddMomentsComponent,
     ShowMomentsComponent,
-    DndDirective,
     SafePipe
   ],
   imports: [

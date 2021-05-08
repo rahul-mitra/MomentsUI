@@ -187,6 +187,7 @@ export class DialogComponent implements OnInit {
   }
 
   onFileInput(files: FileList | null | any): void {
+    debugger;
     if (files) {
       var tempFile = files.item(0);
       if (tempFile) {
