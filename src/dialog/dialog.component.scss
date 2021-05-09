@@ -1,11 +1,4 @@
-.login {
-  display: grid;
-  height: max-content;
 
-  input {
-    width: 100%;
-  }
-}
 mat-form-field .mat-form-field {
   &-underline {
     position: relative;
@@ -15,14 +8,7 @@ mat-form-field .mat-form-field {
     position: static;
   }
 }
-.register {
-  display: grid;
-  height: max-content;
-  // min-height: 420px;
-  input {
-    width: 100%;
-  }
-}
+
 .autoExpand{
   flex: 1 1 auto;
 }
@@ -35,10 +21,6 @@ mat-form-field .mat-form-field {
   }
 }
 
-
-// .mat-form-field-subscript-wrapper {
-//   font-size: 70% !important;
-// }
 
 ::ng-deep .mat-form-field {
     width: 100%;

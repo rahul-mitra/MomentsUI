@@ -33,58 +33,19 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class DialogComponent implements OnInit {
 
-  public fg!: FormGroup;
-  private _loginScreen: boolean = true;
-  public matcher = new MyErrorStateMatcher();
+  // public fg!: FormGroup;
+  // private _loginScreen: boolean = true;
+  // public matcher = new MyErrorStateMatcher();
   file: File | null = null;
   upload: Upload | undefined;
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
-  public set loginScreen(v: boolean) {
 
-    if (!v) {
-      this.formGroupRegister = this.fb.group({
-        email: [null, [Validators.required, Validators.email]],
-        password: [null, [Validators.required,
-        Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{5,30})')]],
-        fullName: [null, [Validators.required]],
-        city: [null, [Validators.required]],
-        confirmPassword: [null, [Validators.required, Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{5,30})')]]
-      }, { validators: [this.checkPasswords, this.matchpattern] });
-    }
-    this._loginScreen = v;
-  }
-  checkPasswords(group: FormGroup) {
-    const password = group.get('password')?.value;
-    const confirmPassword = group.get('confirmPassword')?.value;
-    console.log(password, confirmPassword);
-
-    return password === confirmPassword ? null : { notSame: true }
-  }
-
-  matchpattern(group: FormGroup) {
-    const password: string = group.get('password')?.value;
-    const confirmPassword: string = group.get('confirmPassword')?.value;
-    if (password && confirmPassword) {
-      var p = password.match("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{5,30})")
-      var cP = confirmPassword.match("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{5,30})")
-      if (p && cP)
-        return null
-      else
-        return { patternFail: true }
-    }
-    else
-      return null
-  }
-
-  public get loginScreen(): boolean {
-    return this._loginScreen
-  }
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  public formGroupRegister !: FormGroup;
+  // public formGroupRegister !: FormGroup;
   public selectedUser: string | undefined;
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
@@ -95,12 +56,6 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
     switch (this.data.command) {
-      case "login":
-        this.fg = this.fb.group({
-          email: [null, [Validators.required, Validators.email]],
-          password: [null, Validators.required]
-        });
-        break;
       case 'editMoment':
         console.log(this.data);
         this.data.data.newMoment = JSON.parse(JSON.stringify(this.data.data.oldMoment));
@@ -124,10 +79,7 @@ export class DialogComponent implements OnInit {
     this.dialogRef.close(ddt);
   }
 
-  public login() {
-    var ddt = new DialogData("login", { email: this.fg.controls.email.value, password: this.fg.controls.password.value })
-    this.dialogRef.close(ddt);
-  }
+
 
   userComparer(d1: any, d2: any) {
     console.log(d1, d2);
@@ -156,35 +108,6 @@ export class DialogComponent implements OnInit {
     }
   }
 
-  register() {
-    console.log(this.formGroupRegister);
-    debugger;
-    var email = this.formGroupRegister.controls.email.value;
-    console.log("Email is ", email);
-    if (this.formGroupRegister.controls.password.value == this.formGroupRegister.controls.confirmPassword.value) {
-      this.dataService.registerCheck(email).subscribe(resO => {
-        console.log("Registry check : ", resO);
-        var user = {
-          email: this.formGroupRegister.controls.email.value, password: this.formGroupRegister.controls.password.value,
-          confirmPassword: this.formGroupRegister.controls.confirmPassword.value, city: this.formGroupRegister.controls.city.value,
-          fullName: this.formGroupRegister.controls.fullName.value, moments: undefined
-        }
-        this.dataService.register(user).subscribe(res => {
-          console.log("Res :", res)
-          this.dataService.openSnackBar("Your account is registered you may login.", "Great!", 6000);
-        },
-          err => {
-            console.log("Error : ", err)
-            this.dataService.openSnackBar(err.error.error)
-          })
-      }, err => {
-        this.dataService.openSnackBar(err.error.error)
-      });
-    }
-    else {
-      console.log("Passwords do not match");
-    }
-  }
 
   onFileInput(files: FileList | null | any): void {
     debugger;
